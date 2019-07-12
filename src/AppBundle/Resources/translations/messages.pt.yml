@@ -1,0 +1,42 @@
+app:
+  exception:
+    null_obj: O objeto não deve ser nulo.
+  operations:
+   success: A ordem do serviço foi OPERATION com sucesso.
+   error: Houve um erro ao tentar processar sua solicitação.
+  form:
+   data: Data
+   paciente: Paciente
+   convenio: Convenio
+   posto_colecta: Posto Colecta
+   manager: Gerenciar
+   medico: Medico
+   ordem_servico_exames: Ordem de Serviço Exame
+   empty_value: --Selecione--
+  title: SIGEL
+  main: Gerenciar Ordem Serviço
+  DataTable:
+    actions: Ações
+    search: Pesquisar
+    all: Todos
+    processing: Processando
+    sLengthMenu: Mostrar _MENU_
+    sInfoEmpty: Mostrando 0 a 0 de 0 elementos
+    sInfo: Mostrando _START_ a _END_ de _TOTAL_ elementos
+    sInfoFiltered: (filtrado de _MAX_ elementos)
+    sEmptyTable: Não há dados disponíveis
+    sZeroRecords: Não há dados disponíveis
+  button:
+   edit: Edite
+   add: Añadir
+   save: Aceptar
+   delete: Remover
+   cancelar: Cancelar
+  modal:
+    title: Advertencia
+    body: ¿Está seguro que desea eliminarlo?
+  alert:
+      success: Satisfatório
+      info: Información
+      warning: Advertencia
+      danger: Error

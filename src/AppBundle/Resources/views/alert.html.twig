@@ -1,0 +1,31 @@
+<div class="card-body">
+    {% set type_alert = '' %}
+    {% set translation = '' %}
+    {% for label, messages in app.flashes %}
+        {% if label ==  'error' %}
+            {% set type_alert = 'danger' %}
+            {% set translation = 'app.alert.danger' %}
+        {% elseif label ==  'warning' %}
+            {% set type_alert = 'warning' %}
+            {% set translation = 'app.alert.warning' %}
+        {% elseif label ==  'success' %}
+            {% set type_alert = 'success' %}
+            {% set translation = 'app.alert.success' %}
+        {% else %}
+            {% set type_alert = 'primary' %}
+            {% set translation = 'app.alert.info' %}
+        {% endif %}
+
+        <div class="sufee-alert alert with-close alert-{{ type_alert }} alert-dismissible fade show">
+            <span class="badge badge-pill badge-{{ type_alert }}">{{ translation | trans }}</span>
+            <ul style="list-style: none">
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    {% endfor %}
+</div>

@@ -1,0 +1,81 @@
+{% extends '@App/base.html.twig' %}
+{% block title %}{{ 'app.main' | trans }}{% endblock %}
+{% block card_header %} <div class="row"><a  href="{{ path('manage') }}" class="btn  btn-primary">{{  'app.button.add' | trans }}</a></div>{% endblock %}
+{% block content %}
+    <table class="table dt-responsive nowrap mt-5" id="component_datatable" style="width:100%">
+        <thead>
+        <tr>
+            <th >{{ 'app.DataTable.actions'| trans }}</th>
+            <th >{{ 'app.form.medico'| trans }}</th>
+            <th >{{ 'app.form.paciente'| trans }}</th>
+            <th >{{ 'app.form.convenio'| trans }}</th>
+            <th >{{ 'app.form.posto_colecta'| trans }}</th>
+        </tr>
+        </thead>
+    </table>
+{% endblock %}
+
+{% block script %}
+    <script type="application/javascript">
+        $(document).ready(function () {
+            $('#component_datatable').DataTable({
+                responsive: true,
+                processing: true,
+                serverSide: true,
+                ajax: {
+                    url: '{{ path('listOrdemServico') }}',
+                    method: 'POST',
+                    timeout: 20000
+                },
+                columns: [
+                    {
+                        data: null, searchable: false, orderable: false,
+                        render: function (data, type, full, meta, row) {
+                            return '<a class="btn btn-success mr-3" href="{{ path("manage") }}/' + data['id'] + '">{{ 'app.button.edit'| trans }}</a>'+
+                                '<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalDelete"' +
+                                'data-whatever="{{ path("delete") }}/' + data['id'] + '" >{{ 'app.button.delete' | trans }}</button>';
+                        }
+                    },
+                    {data: 'medico'},
+                    {data: 'paciente'},
+                    {data: 'convenio'},
+                    {data: 'postoColecta'}
+                ], rowGroup: {
+                    startRender: function (rows, group) {
+                        return 'Data:' + ' ' + group;
+                    },
+                    endRender: null,
+                    dataSrc: 'fecha'
+                },
+                oLanguage: {
+                    sLengthMenu: '{{ 'app.DataTable.sLengthMenu'| trans }}',
+                    sSearch: '{{ 'app.DataTable.search'| trans }}',
+                    oPaginate: {
+                        sPrevious: '<span aria-hidden="true">«</span>',
+                        sNext: '<span aria-hidden="true">»</span>'
+                    },
+                    sInfoEmpty: '{{ 'app.DataTable.sInfoEmpty' | trans }}',
+                    sInfo: '{{ 'app.DataTable.sInfo' | trans }}',
+                    sInfoFiltered: '{{ 'app.DataTable.sInfoFiltered' | trans }}',
+                    sEmptyTable: '{{ 'app.DataTable.sEmptyTable' | trans }}',
+                    sZeroRecords: '{{ 'app.DataTable.sZeroRecords'| trans }}',
+                    sProcessing: '{{ "app.DataTable.processing"| trans }}'
+                },
+                oPagination: true,
+                aaSorting: [[0, 'asc']],
+                aLengthMenu: [
+                    [5, 10, 15, 20, -1],
+                    [5, 10, 15, 20, '{{ 'app.DataTable.all' | trans }}'] // change per page values here
+                ],
+                iDisplayLength: 5
+            });
+
+            $('#modalDelete').on('show.bs.modal', function (event) {
+                var button = $(event.relatedTarget) // Button that triggered the modal
+                var url = button.data('whatever')
+                var modal = $(this)
+                modal.find('.modal-footer a').attr('href',url)
+            })
+        })
+    </script>
+{% endblock %}

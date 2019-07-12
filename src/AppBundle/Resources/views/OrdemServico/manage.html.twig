@@ -1,0 +1,74 @@
+{% extends '@App/base.html.twig' %}
+{% block title %}{% endblock %}
+{% block css %}
+    <link href="{{ asset('assets/vendor/datepicker/css/bootstrap-datepicker.min.css') }}" rel="stylesheet" media="all">
+    <style type="text/css">
+        .container {
+            max-width: 960px;
+        }
+
+        .lh-condensed {
+            line-height: 1.25;
+        }
+    </style>
+{% endblock %}
+{% block card_header %}{{ 'app.form.manager' | trans }}{% endblock %}
+{% block content %}
+    {{ form_start(form, {'method': 'post', 'action': path('manage', {'id': id}), 'attr': {'class' : 'needs-validation', 'novalidate': 'novalidate'} }) }}
+    <div class="row">
+        <div class="col-3">
+            {{ form_label(form.fecha) }}
+            {{ form_widget(form.fecha) }}
+            <div class="invalid-feedback">
+                Seleccione una Data.
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            {{ form_label(form.medico) }}
+            {{ form_widget(form.medico) }}
+            <div class="invalid-feedback">
+                Seleccione un Medico.
+            </div>
+        </div>
+        <div class="col-3">
+            {{ form_label(form.paciente) }}
+            {{ form_widget(form.paciente) }}
+            <div class="invalid-feedback">
+                Seleccione un Paciente.
+            </div>
+        </div>
+        <div class="col-3">
+            {{ form_label(form.convenio) }}
+            {{ form_widget(form.convenio) }}
+            <div class="invalid-feedback">
+                Seleccione un Convenio.
+            </div>
+        </div>
+        <div class="col-3">
+            {{ form_label(form.postoColecta) }}
+            {{ form_widget(form.postoColecta) }}
+            <div class="invalid-feedback">
+                Selecione Posto Coleta.
+            </div>
+        </div>
+    </div>
+    <hr class="mb-4">
+    <button class="btn btn-primary float-left mr-3 " type="submit">{{ 'app.button.save' | trans }}</button>
+    <a class="btn btn-danger " href="{{ path('homepage') }}">{{ 'app.button.cancelar' | trans }}</a>
+    {{ form_end(form) }}
+{% endblock %}
+    {% block script %}
+        <script src="{{ asset('assets/lib/form-validation.js') }}"></script>
+        <script src="{{ asset('assets/vendor/datepicker/js/bootstrap-datepicker.min.js') }}"></script>
+        <script src="{{ asset('assets/vendor/datepicker/locales/bootstrap-datepicker.pt-BR.min.js') }}"
+                charset="UTF-8"></script>
+        <script type="application/javascript">
+            $('.sigel-date').datepicker({
+                format: 'yyyy-mm-dd',
+                language: 'pt-BR'
+            });
+        </script>
+    {% endblock %}
+

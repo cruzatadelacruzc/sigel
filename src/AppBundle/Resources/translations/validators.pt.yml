@@ -1,0 +1,18 @@
+validations:
+  name_type: El Nombre debe ser solo letras.
+  impact_type: El Impacto debe ser solo letras.
+  type_type: El Tipo debe ser solo letras.
+  leader_type: El Líder debe ser solo letras.
+  error_type_type: El Tipo debe error de ser solo letras.
+  criteria_type: El Criterio debe ser solo letras.
+  nameMedia_type: El Nombre debe ser solo letras.
+  source_type: La Fuente debe ser solo letras.
+  responsable_type: El Responsable debe ser solo letras.
+  type: Debe proporcionar un Tipo.
+  evaluation: Debe proporcionar una Evaluación.
+  type_integer: El valor debe ser un número entero.
+  number_greater: Debe ser mayor o igual a cero.
+  not_null: Debe proporcionar algún valor.
+  type_choice: Debe seleccionar algún elemento
+
+
