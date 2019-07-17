@@ -13,7 +13,6 @@ use Symfony\Component\Translation\TranslatorInterface;
 
 class OrdemServicoController extends Controller
 {
-    const OPERATION_SUCCESS = 'success';
 
     /** @var IOrdemServico $ordemServico */
     private $ordemServico;
@@ -21,6 +20,7 @@ class OrdemServicoController extends Controller
     /** @var TranslatorInterface $translator */
     private $translator;
 
+    const OPERATION_SUCCESS = 'success';
     const REMOVE = 'removida';
     const ADD = 'adicionada';
     const EDIT = 'actualizada';
