@@ -64,7 +64,7 @@ class OrdemServicoController extends Controller
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      * @throws \Exception
      */
-    public function addEdit(Request $request, $id)
+    public function addEditAction(Request $request, $id)
     {
         $ordemServico = $this->ordemServico->CreateEntity($id);
         $form = $this->createForm(OrdemServicoType::class, $ordemServico);
