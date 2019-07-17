@@ -19,7 +19,7 @@ interface IOrdemServico
 
     /**
      * Crea una instancia si el id es nulo(null)
-     * y si no es nulo lo trae de la base de datos.
+     * y si no es nulo lo recupera de la base de datos.
      * @param $id
      * @return mixed
      */
@@ -38,7 +38,7 @@ interface IOrdemServico
     public function getRepository();
 
     /**
-     * Retorna los datos de la Indicacion necesarios para pintar en el datatable
+     * Retorna los datos  necesarios para pintar en el datatable
      * @param ParamDataTable $paramDataTable
      * @return JsonResponse
      */

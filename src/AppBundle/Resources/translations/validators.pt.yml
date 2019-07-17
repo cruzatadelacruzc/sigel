@@ -14,10 +14,6 @@ validations:
   number_greater: Debe ser mayor o igual a cero.
   not_null: Debe proporcionar algún valor.
   type_choice: Debe seleccionar algún elemento
-  data:  Seleccione una data.
-  medico:  Seleccione un medico.
-  paciente:  Seleccione un paciente.
-  convenio:  Seleccione un convenio.
-  posto:   Selecione posto coleta.
+
 
 

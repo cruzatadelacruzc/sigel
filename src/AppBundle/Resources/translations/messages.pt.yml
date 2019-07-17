@@ -40,3 +40,9 @@ app:
       info: Información
       warning: Advertencia
       danger: Error
+  validation:
+      data:  Seleccione una data.
+      medico:  Seleccione un medico.
+      paciente:  Seleccione un paciente.
+      convenio:  Seleccione un convenio.
+      posto:   Selecione posto coleta.
